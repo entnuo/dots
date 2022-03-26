@@ -1,11 +1,12 @@
 #!/bin/sh
 # automatizing everything cuz im lazy
 
-cp .Xresources $HOME/
-cp .zshenv $HOME/
+cp -v .Xresources $HOME/
+cp -v .zshenv $HOME/
 
-cp .config/dunst $HOME/.config/
-cp .config/mpd $HOME/.config/
-cp .config/ncmpcpp $HOME/.config/
-cp .config/nvim $HOME/.config/
-cp .config/zsh $HOME/.config/
+cp -rv .config/dunst $HOME/.config/
+cp -rv .config/mpd $HOME/.config/
+cp -rv .config/ncmpcpp $HOME/.config/
+cp -rv .config/nvim $HOME/.config/
+cp -rv .config/zsh $HOME/.config/
+cp -rv .config/rofi $HOME/.config/
