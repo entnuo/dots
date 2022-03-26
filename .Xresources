@@ -1,0 +1,52 @@
+!General
+URxvt.font: xft:firacode:size=10:minspace=False, xft:DejaVu Sans:pixelsize=10
+URxvt.boldFont: xft:firacode:size=10:minspace=False, xft:DejaVu Sans:pixelsize=10
+URxvt.letterSpace: -1
+URxvt.scrollBar: false
+URxvt.geometry: 83x24
+URxvt.iso14755: false
+URxvt.iso14755_52: true
+urxvt*depth: 32
+!URxvt.internalBorder: 0
+
+!Ctrl C & Ctrl V
+URxvt.keysym-Control-C: eval:selection_to_clipboard
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Control-Meta-c: builtin-string
+URxvt.keysym.Control-Meta-v: builtin-string
+
+!Extensions
+urxvt.perl-ext-common: default,resize-font,matcher
+!URxvt.url-launcher: /usr/bin/xdg-open
+!URxvt.matcher.button: 1
+URxvt.colorUL: #4682b4
+
+!Colors (Tokyo Night - except background, foreground, cursor and pointer)
+  *.background:   #191919
+  *.foreground:   #ffffff
+  *.cursorColor:  #c4c4c4
+  *.pointerColor: #c5c5c5
+!black
+   *color0:        #414868
+   *color8:        #31364e
+!red
+   *color1:        #f7768e
+   *color9:        #b35567
+!green
+   *color2:        #73daca
+   *color10:       #58a79a
+!yellow
+   *color3:        #e0af68
+   *color11:       #bc9357
+!blue
+   *color4:        #7aa2f7
+   *color12:       #5976b5
+!magenta
+   *color5:        #bb9af7
+   *color13:       #8e75bc
+!cyan
+   *color6:        #7dcfff
+   *color14:       #5c98bb
+!white
+   *color7:        #c0caf5
+   *color15:       #a1aace
