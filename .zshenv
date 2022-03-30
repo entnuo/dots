@@ -12,7 +12,7 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 
 export LESSHISTFILE=-
 
-path+=$HOME/Documents/scripts/
+path+=$HOME/.scripts/
 
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc-2.0
 
@@ -26,3 +26,8 @@ export OPENER='xdg-open'
 export READER='zathura'
 export PAGER='less'
 export COLORTERM='truecolor'
+
+# set PATH so it includes user's private ~/.local/bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
