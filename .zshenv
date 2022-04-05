@@ -4,18 +4,24 @@ export QT_IM_MODULE='fcitx'
 export SDL_IM_MODULE='fcitx'
 export XMODIFIERS='@im=fcitx'
 
+# Move zsh files to .config
 ZDOTDIR=$HOME/.config/zsh
 
+# XDG paths
 export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 
+# Disable file
 export LESSHISTFILE=-
 
-path+=$HOME/.scripts/
+# Some paths
+path+=$HOME/.scripts/:$HOME/Documents/android/platform-tools/
 
+# Fixing path
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc-2.0
 
+# Default apps
 export EDITOR='nvim'
 export VISUAL='nvim'
 export TERMINAL='st'
