@@ -23,6 +23,7 @@ nm-applet &
 xfce4-power-manager &
 start-pulseaudio-x11 &
 xiccd &
+xrdb .Xresources
 
 (sleep 3s && mpd) &
 (sleep 3s && thunar --daemon) &
