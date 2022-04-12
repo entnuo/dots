@@ -17,10 +17,14 @@
 #xfce-mcs-manager &
 
 $HOME/.scripts/fehbg
+$HOME/.scripts/mouse-sets
+numlockx on &
+compton &
 tint2 &
 dunst &
 nm-applet &
 xfce4-power-manager &
+xfce4-volumed &
 start-pulseaudio-x11 &
 xiccd &
 xrdb .Xresources
