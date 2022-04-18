@@ -182,8 +182,7 @@
     <!-- 'Left', 'Middle', 'Right' -->
   </dock>
   <keyboard>
-      <chainQuitKey>C-g</chainQuitKey>
-
+    <chainQuitKey>C-g</chainQuitKey>
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
         <command>amixer -D pulse set Master 5%+ unmute</command>
@@ -199,11 +198,9 @@
         <command>amixer set Master toggle</command>
       </action>
     </keybind>
-
     <keybind key="W-space">
-        <action name="ToggleDecorations"/>
+      <action name="ToggleDecorations"/>
     </keybind>
-
     <!-- Window Tiling: Emulates Windows 7 Snap feature JASON CAVETT -->
     <keybind key="W-Left">
       <action name="UnmaximizeFull"/>
@@ -765,10 +762,7 @@
     <manageDesktops>yes</manageDesktops>
     <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
-  <applications>
-    <application class="*">
-        <decor>no</decor>
-    </application>
+  <applications><application class="*"><decor>no</decor></application>
     # enable or disable window decorations
     <!--
   # this is an example with comments through out. use these to make your
