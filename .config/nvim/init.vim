@@ -1,14 +1,11 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'junegunn/goyo.vim' | Plug 'junegunn/limelight.vim'
 "Plug 'ctrlpvim/ctrlp.vim' | Plug 'neoclide/coc.nvim', {'branch': 'release'} 
-"Plug 'vim-scripts/fountain.vim' | Plug 'tpope/vim-markdown' | 
-"Plug 'ap/vim-css-color'
+Plug 'vim-scripts/fountain.vim' | Plug 'tpope/vim-markdown' | 
+Plug 'ap/vim-css-color'
 Plug 'Pocco81/HighStr.nvim'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'tanvirtin/monokai.nvim'
-"Plug 'morhetz/gruvbox'
-Plug 'dylanaraps/wal.vim'
-Plug 'ap/vim-css-color'
 call plug#end()
 
 "General Settings
@@ -23,17 +20,37 @@ set hls is ic number
 au BufRead,BufNewFile *.fountain set filetype=fountain
 
 "Status Line
-set statusline+=\ %y
-set statusline+=%#PmenuSel#
-set statusline+=%#LineNr#
-set statusline+=\ %f
-set statusline+=%m\
+"set statusline+=\ %y
+"set statusline+=%#PmenuSel#
+"set statusline+=%#LineNr#
+"set statusline+=\ %f
+"set statusline+=%m\
+"set statusline+=%=
+"set statusline+=%#CursorColumn#
+"set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+"set statusline+=\[%{&fileformat}\]
+"set statusline+=\ %p%%
+"set statusline+=\ %l:%c
+
+set laststatus=2
+set statusline=
+set statusline+=%y
+set statusline+=\ 
+set statusline+=%F
+set statusline+=\ 
+set statusline+=%m
+set statusline+=\ 
+set statusline+=%r
 set statusline+=%=
-set statusline+=%#CursorColumn#
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\[%{&fileformat}\]
-set statusline+=\ %p%%
-set statusline+=\ %l:%c
+set statusline+=[%{&ff}
+set statusline+=\ 
+set statusline+=%{strlen(&fenc)?&fenc:'none'}]
+set statusline+=\ 
+set statusline+=%p%%
+set statusline+=\ 
+set statusline+=%l
+set statusline+=:
+set statusline+=%c
 
 "Key-bindings
 let mapleader=" "
