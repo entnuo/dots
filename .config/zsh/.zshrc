@@ -1,19 +1,6 @@
 PROMPT="%B%F{#4d8fac}%n%f %F{#ff4e20}%~%f $%b "
 #RPROMPT="%B[%F{ff4e20}%n %~%f]%b "
 
-# function to return current branch name while suppressing errors.
-#function git_branch() {
-#    branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
-#    if [[ $branch == "" ]]; then
-#        :
-#    else
-#        echo ' (' $branch ') '
-#    fi
-#}
-#
-#setopt prompt_subst             # allow command substitution inside the prompt
-#PROMPT='%B%F{#4d8fac}%n%f %F{#ff4e20}%~%f $(git_branch) $%b '     # set the prompt value
-
 HISTFILE=~/.config/zsh/.zsh_zhistory
 HISTSIZE=100000
 SAVEHIST=100000
@@ -40,7 +27,7 @@ setopt hist_reduce_blanks       # Remove unnecessary blanks
 setopt hist_verify              #
 setopt inc_append_history       # 
 
-bindkey -e
+bindkey -v  # vi mode
 bindkey '^[[7~' beginning-of-line # Home in my keyboard
 bindkey '^[[8~' end-of-line       # End " " "
 
