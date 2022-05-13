@@ -27,7 +27,7 @@ xfce4-power-manager &
 xfce4-volumed &
 start-pulseaudio-x11 &
 xiccd &
-xrdb .Xresources
+xrdb .Xresources &
 
 (sleep 3s && mpd) &
 (sleep 3s && thunar --daemon) &
