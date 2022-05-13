@@ -185,12 +185,12 @@
     <chainQuitKey>C-g</chainQuitKey>
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
-        <command>amixer -D pulse set Master 5%+ unmute</command>
+        <command>amixer -D pulse set Master 2%+ unmute</command>
       </action>
     </keybind>
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute">
-        <command>amixer -D pulse set Master 5%- unmute</command>
+        <command>amixer -D pulse set Master 2%- unmute</command>
       </action>
     </keybind>
     <keybind key="XF86AudioMute">
@@ -202,7 +202,7 @@
       <action name="ToggleDecorations"/>
     </keybind>
     <!-- Window Tiling: Emulates Windows 7 Snap feature JASON CAVETT -->
-    <keybind key="W-Left">
+    <keybind key="W-l">
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
       <action name="MoveResizeTo">
@@ -210,7 +210,7 @@
       </action>
       <action name="MoveToEdgeWest"/>
     </keybind>
-    <keybind key="W-Right">
+    <keybind key="W-h">
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
       <action name="MoveResizeTo">
@@ -392,11 +392,11 @@
         <command>rofi -show run</command>
       </action>
     </keybind>
-    <keybind key="W-Up">
+    <keybind key="W-k">
       <action name="ToggleMaximize">
       </action>
     </keybind>
-    <keybind key="W-Down">
+    <keybind key="W-j">
       <action name="Iconify">
       </action>
     </keybind>
@@ -437,7 +437,7 @@
         <action name="FocusToBottom"/>
         <action name="Unfocus"/>
       </mousebind>
-      <mousebind button="A-Up" action="Click">
+      <!--mousebind button="A-Up" action="Click">
         <action name="GoToDesktop">
           <to>previous</to>
         </action>
@@ -446,7 +446,7 @@
         <action name="GoToDesktop">
           <to>next</to>
         </action>
-      </mousebind>
+      </mousebind-->
       <mousebind button="C-A-Up" action="Click">
         <action name="GoToDesktop">
           <to>previous</to>
