@@ -1,7 +1,5 @@
 ## dotfiles
 
----
-
 ### dependecies
 
 `neovim openbox zsh rofi tint2 compton dunst feh numlockx xiccd mpd ncmpcpp xfce4-power-manager xfce4-volumed thunar redshift`
