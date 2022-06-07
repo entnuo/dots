@@ -12,7 +12,7 @@
         </item>
         <item label="Web browser">
             <action name="Execute">
-                <execute>x-www-browser</execute>
+                <execute>firefox</execute>
             </action>
         </item>
         <item label="File manager">
@@ -59,4 +59,4 @@
             </item>
         </menu>
     </menu>
-</openbox_menu>r
+</openbox_menu>
