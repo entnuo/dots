@@ -13,6 +13,8 @@ cp -rv .config/rofi $HOME/.config/
 cp -rv .config/openbox/ $HOME/.config/
 cp -rv .config/tint2/ $HOME/.config/
 
+    cp -rv .icons/dracula/ $HOME/.icons/
+
 cp -rv .fonts/jetbrains-mono $HOME/.fonts/ && fc-cache -fv
 
 cp -rv .themes/ $HOME/.themes/
