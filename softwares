@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# a few things i would want to install after finishing installing my system
+
+sudo pacman -S dunst fcitx guwf keepassxc mpd mpv nnn numlockx network-manager-applet neovim picom pulseaudio pulseaudio-alsa pavucontrol redshift rofi sxiv tint2 thunar ttf-hanazono wine w3m youtube-dl zathura zsh
