@@ -12,6 +12,7 @@ Plug 'ap/vim-css-color'
 Plug 'Pocco81/HighStr.nvim'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'tanvirtin/monokai.nvim'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 "General Settings
