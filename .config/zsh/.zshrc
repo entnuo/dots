@@ -33,16 +33,9 @@ bindkey '^[[8~' end-of-line       # End " " "
 
 # Alias
 
-alias ls="ls -h --color='auto'"
-alias ll='ls -alF'
-alias la='ls -A'
-alias suck='rm -f config.h && sudo make install'
-#alias nv='nvim'
-alias n='nnn'
-alias vim='nvim'
-alias apt='/usr/bin/apt'
-#alias mateme='sudo apt remove --purge "fcitx*" -y ; rm -rfv .config/fcitx .mozc ; sudo apt autoremove -y'
-#alias xev="xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'"
+source $HOME/.config/zsh/aliases
+
+# zsh autocompletion and highlight
 
 source $HOME/.config/zsh/zsh-as/zsh-autosuggestions.zsh
 source $HOME/.config/zsh/zsh-sh/zsh-syntax-highlighting.zsh
