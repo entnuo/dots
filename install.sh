@@ -1,20 +1,30 @@
 #!/bin/sh
 # automatizing everything cuz im lazy
 
-cp -v .Xresources $HOME/
-cp -v .zshenv $HOME/
+echo 'copying .Xresources and .zshenv to home'
+cp .Xresources $HOME/
+cp .zshenv $HOME/
+echo -e 'done\n'
 
-cp -rv .config/dunst $HOME/.config/
-cp -rv .config/mpd $HOME/.config/
-cp -rv .config/ncmpcpp $HOME/.config/
-cp -rv .config/nvim $HOME/.config/
-cp -rv .config/zsh $HOME/.config/
-cp -rv .config/rofi $HOME/.config/
-cp -rv .config/openbox/ $HOME/.config/
-cp -rv .config/tint2/ $HOME/.config/
+echo 'copying .config folders to $HOME/.config'
+cp -r .config/dunst $HOME/.config/
+cp -r .config/mpd $HOME/.config/
+cp -r .config/ncmpcpp $HOME/.config/
+cp -r .config/nvim $HOME/.config/
+cp -r .config/zsh $HOME/.config/
+cp -r .config/rofi $HOME/.config/
+cp -r .config/openbox/ $HOME/.config/
+cp -r .config/tint2/ $HOME/.config/
+echo -e 'done\n'
 
-    cp -rv .icons/dracula/ $HOME/.icons/
+echo 'copying .icons to $HOME/.icons'
+cp -r .icons/dracula/ $HOME/.icons/
+echo -e 'done\n'
 
-cp -rv .fonts/jetbrains-mono $HOME/.fonts/ && fc-cache -fv
+echo 'copying .themes to $HOME/.themes'
+cp -r .themes/ $HOME/.themes/
+echo -e 'done\n'
 
-cp -rv .themes/ $HOME/.themes/
+echo -e 'copying .fonts to $HOME/.fonts and updating font cache\n'
+cp -r .fonts/jetbrains-mono $HOME/.fonts/ && fc-cache -f
+echo 'all done, enjoy'
