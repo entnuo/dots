@@ -24,6 +24,7 @@ filetype plugin on
 syntax on
 set mouse=a
 set hls is ic number
+set clipboard+=unnamedplus
 au BufRead,BufNewFile *.fountain set filetype=fountain
 
 "Status Line
