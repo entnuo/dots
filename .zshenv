@@ -20,6 +20,8 @@ path+=$HOME/.scripts/:$HOME/Documents/android/platform-tools/
 
 # Fixing path
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export WINEPREFIX="$XDG_DATA_HOME"/wine
 
 # Default apps
 export EDITOR='nvim'
