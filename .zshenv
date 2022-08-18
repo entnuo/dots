@@ -19,7 +19,7 @@ export LESSHISTFILE=-
 path+=$HOME/.scripts/:$HOME/Documents/android/platform-tools/
 
 # Fixing path
-export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc-2.0
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 
 # Default apps
 export EDITOR='nvim'
