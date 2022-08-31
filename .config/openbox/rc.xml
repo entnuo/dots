@@ -377,7 +377,7 @@
       </action>
     </keybind> -->
     <!-- Launch scrot when Print is pressed -->
-    <keybind key="A-Print">
+    <keybind key="W-Print">
       <action name="Execute">
         <command>scrot</command>
       </action>
