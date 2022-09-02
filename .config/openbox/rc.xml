@@ -314,6 +314,18 @@
       <action name="Execute">
         <command>scrot -s</command>
       </action>
+  </keybind>
+    <!-- betterlockscreen -->
+    <keybind key="W-S-l">
+     <action name="Execute">
+        <command>betterlockscreen -l blur</command>
+     </action>
+    </keybind>
+
+    <keybind key="W-S-x">
+     <action name="Execute">
+        <command>betterlockscreen -l blur</command>
+     </action>
     </keybind>
     <!-- Keybindings for window switching -->
     <keybind key="A-Tab">
