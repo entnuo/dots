@@ -15,7 +15,8 @@ setxkbmap -layout br &
 numlockx on &
 $HOME/.scripts/mouse-sets &
 xrdb .Xresources &
-xiccd &
+#xiccd &
+picom --vsync --backend glx -b &
 
 #exec xfce4-session
 exec openbox-session

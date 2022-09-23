@@ -17,7 +17,7 @@
 #xfce-mcs-manager &
 
 $HOME/.scripts/fehbg
-compton &
+#compton &
 tint2 &
 dunst &
 nm-applet &
