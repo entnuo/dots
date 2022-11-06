@@ -23,7 +23,7 @@ menu.items.active.bg.color:     #161618
 menu.items.active.text.color:   #525f81
 
 # Active window
-window.active.border.color:                           #414868
+window.active.border.color:                           #ffffff
 
 window.active.title.bg:                               solid flat
 window.active.title.bg.color:                         #161618
@@ -42,17 +42,17 @@ window.active.grip.bg.color:                          #525f81
 window.active.button.unpressed.bg:                    parentrelative
 window.active.button.unpressed.bg.color:              #161618
 
-window.active.button.iconify.unpressed.image.color:   #3e4b6b
-window.active.button.iconify.pressed.image.color:     #3e4b6b
-window.active.button.iconify.hover.image.color:       #3e4b6b
+window.active.button.iconify.unpressed.image.color:   #7aa2f7
+window.active.button.iconify.pressed.image.color:     #7aa2f7
+window.active.button.iconify.hover.image.color:       #7aa2f7
 
-window.active.button.max.unpressed.image.color:       #443c5c
-window.active.button.max.pressed.image.color:         #443c5c
-window.active.button.max.hover.image.color:           #443c5c
+window.active.button.max.unpressed.image.color:       #e0af68
+window.active.button.max.pressed.image.color:         #e0af68
+window.active.button.max.hover.image.color:           #e0af68
 
-window.active.button.close.unpressed.image.color:     #363355
-window.active.button.close.pressed.image.color:       #363355
-window.active.button.close.hover.image.color:         #363355
+window.active.button.close.unpressed.image.color:     #f7768e
+window.active.button.close.pressed.image.color:       #f7768e
+window.active.button.close.hover.image.color:         #f7768e
 
 window.active.button.shade.unpressed.image.color:     #697fa2
 window.active.button.shade.pressed.image.color:       #697fa2
@@ -76,7 +76,7 @@ window.active.button.toggled.pressed.bg:              parentrelative
 window.active.button.toggled.pressed.image.color:     #525f81
 
 # Inactive window
-window.inactive.border.color:                         #31364e
+window.inactive.border.color:                         #343434
 
 window.inactive.title.bg:                             flat solid
 window.inactive.title.bg.color:                       #161618
@@ -95,17 +95,17 @@ window.inactive.grip.bg.color:                        #697fa2
 window.inactive.button.unpressed.bg:                  parentrelative
 window.inactive.button.unpressed.bg.color:            #161618
 
-window.inactive.button.iconify.unpressed.image.color: #505051
-window.inactive.button.iconify.pressed.image.color:   #3e4b6b
-window.inactive.button.iconify.hover.image.color:     #3e4b6b
+window.inactive.button.iconify.unpressed.image.color: #222e46
+window.inactive.button.iconify.pressed.image.color:   #222e46
+window.inactive.button.iconify.hover.image.color:     #222e46
 
-window.inactive.button.max.unpressed.image.color:     #505051
-window.inactive.button.max.pressed.image.color:       #443c5c
-window.inactive.button.max.hover.image.color:         #443c5c
+window.inactive.button.max.unpressed.image.color:     #6e5733
+window.inactive.button.max.pressed.image.color:       #6e5733
+window.inactive.button.max.hover.image.color:         #6e5733
 
-window.inactive.button.close.unpressed.image.color:   #505051
-window.inactive.button.close.pressed.image.color:     #363355
-window.inactive.button.close.hover.image.color:       #363355
+window.inactive.button.close.unpressed.image.color:   #6a333d
+window.inactive.button.close.pressed.image.color:     #6a333d
+window.inactive.button.close.hover.image.color:       #6a333d
 
 window.inactive.button.shade.unpressed.image.color:   #505051
 window.inactive.button.shade.pressed.image.color:     #697fa2
