@@ -379,15 +379,7 @@
       </action>
     </keybind>
     <!-- Keybindings for running applications -->
-    <!-- <keybind key="W-e">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Konqueror</name>
-        </startupnotify>
-        <command>kfmclient openProfile filemanagement</command>
-      </action>
-    </keybind> -->
+
     <!-- Launch scrot when Print is pressed -->
     <keybind key="W-Print">
       <action name="Execute">
@@ -409,6 +401,13 @@
         <command>rofi -show run</command>
       </action>
     </keybind>
+
+    <keybind key="W-S-e">
+      <action name="Execute">
+        <command>dmenu_run_history</command>
+      </action>
+    </keybind>
+
     <keybind key="W-k">
       <action name="ToggleMaximize">
       </action>
