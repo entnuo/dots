@@ -8,14 +8,7 @@ cp .zshenv $HOME/
 echo -e 'done\n'
 
 echo 'copying .config folders to $HOME/.config'
-cp -r .config/dunst $HOME/.config/
-cp -r .config/mpd $HOME/.config/
-cp -r .config/ncmpcpp $HOME/.config/
-cp -r .config/nvim $HOME/.config/
-cp -r .config/zsh $HOME/.config/
-cp -r .config/rofi $HOME/.config/
-cp -r .config/openbox/ $HOME/.config/
-cp -r .config/tint2/ $HOME/.config/
+cp -r .config/* $HOME/.config/
 echo -e 'done\n'
 
 echo 'copying .icons to $HOME/.icons'
