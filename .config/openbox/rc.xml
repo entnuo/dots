@@ -183,11 +183,13 @@
   </dock>
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
+
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
         <command>amixer -D pulse set Master 2%+ unmute</command>
       </action>
     </keybind>
+
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute">
         <command>amixer -D pulse set Master 2%- unmute</command>
@@ -408,6 +410,12 @@
     <keybind key="W-S-e">
       <action name="Execute">
         <command>dmenu_run_history</command>
+      </action>
+    </keybind>
+
+    <keybind key="W-S-g">
+      <action name="Execute">
+        <command>powermenu</command>
       </action>
     </keybind>
 
