@@ -16,19 +16,18 @@
 #
 #xfce-mcs-manager &
 
-$HOME/.scripts/fehbg
-#compton &
+$HOME/.scripts/fehbg &
 tint2 &
 dunst &
 nm-applet &
-xfce4-power-manager &
-xfce4-volumed &
-start-pulseaudio-x11 &
 discord --start-minimized &
 
 #(sleep 3s && mpd) &
-(sleep 3s && thunar --daemon) &
+#(sleep 3s && thunar --daemon) &
 (sleep 3s && fcitx5) &
+(sleep 5s && xfce4-power-manager) &
+(sleep 5s && xfce4-volumed) &
+#(sleep 5s && start-pulseaudio-x11) &
 (sleep 10s && redshift) &
-(sleep 15s && xdg-user-dirs-update) &
-(sleep 15s && xdg-user-dirs-gtk-update) &
+#(sleep 15s && xdg-user-dirs-update) &
+#(sleep 15s && xdg-user-dirs-gtk-update) &
