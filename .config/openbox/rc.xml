@@ -398,7 +398,7 @@
     </keybind>
     <keybind key="W-Return">
       <action name="Execute">
-        <command>rofi -show run</command>
+        <command>st</command>
       </action>
     </keybind>
     <keybind key="W-e">
