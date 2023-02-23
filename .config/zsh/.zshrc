@@ -1,3 +1,4 @@
+#!/bin/zsh
 PROMPT="%B%F{#4d8fac}%n%f %F{#ff4e20}%~%f $%b "
 #RPROMPT="%B[%F{ff4e20}%n %~%f]%b "
 
