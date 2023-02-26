@@ -25,7 +25,7 @@ export WINEPREFIX="$XDG_DATA_HOME"/wine
 # Default apps
 export EDITOR='nvim'
 export VISUAL='nvim'
-export TERMINAL='st'
+export TERMINAL='st-256color'
 export BROWSER='firefox'
 export VIDEO='mpv'
 export IMAGE='nsxiv'
@@ -38,3 +38,7 @@ export COLORTERM='truecolor'
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+# nnn fifo and plugins
+export NNN_FIFO=/tmp/nnn.fifo
+export NNN_PLUG='v:preview-tabbed'
