@@ -1,8 +1,10 @@
 $HOME/.scripts/fehbg &
-tint2 &
+#tint2 &
+$HOME/.config/polybar/launch.sh &
+$HOME/.scripts/welcome &
 dunst &
 nm-applet &
-discord --start-minimized &
+#discord --start-minimized &
 
 #(sleep 3s && mpd) &
 #(sleep 3s && thunar --daemon) &
@@ -13,3 +15,4 @@ discord --start-minimized &
 (sleep 10s && redshift) &
 #(sleep 15s && xdg-user-dirs-update) &
 #(sleep 15s && xdg-user-dirs-gtk-update) &
+(sleep 2m 30s && discord --start-minimized) &
