@@ -8,6 +8,11 @@ alias vim='nvim'
 alias apt='/usr/bin/apt'
 #alias mateme='sudo apt remove --purge "fcitx*" -y ; rm -rfv .config/fcitx .mozc ; sudo apt autoremove -y'
 #alias xev="xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'"
+alias mkdir='mkdir -p -v'
+alias q='exit'
+alias mv='mv -i'
+alias mvu='mv -u'
+alias df='df -Th --total'
 
 alias gs='git status'
 alias ga='git add'
