@@ -18,4 +18,5 @@ xrdb .Xresources &
 picom --vsync --backend glx -b &
 
 #exec xfce4-session
-exec openbox-session
+#exec openbox-session
+exec bspwm
