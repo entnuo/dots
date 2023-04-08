@@ -16,6 +16,6 @@
 sudo pacman -S bspwm discord dmenu dunst fcitx5 fcitx5-qt fcitx5-gtk fcitx5-mozc feh ffmpeg firefox \
     gufw intel-ucode keepassxc libsixel \
     mpv nnn numlockx network-manager-applet neovim noto-fonts noto-fonts-cjk noto-fonts-extra pandoc-cli pavucontrol picom polybar pulseaudio pulseaudio-alsa pulsemixer redshift \
-    scrot sxhkd tlp thunar ttf-font-awesome ttf-joypixels ttf-liberation wine xfce4-power-manager xsettingsd yt-dlp zathura zathura-pdf-mupdf zsh
+    scrcpy scrot sxhkd tlp thunar ttf-font-awesome ttf-joypixels ttf-liberation wine xfce4-power-manager xsettingsd yt-dlp zathura zathura-pdf-mupdf zsh
 
 yay -S ttf-symbola ttf-vlgothic hypnotix betterlockscreen nsxiv xfce4-volumed
