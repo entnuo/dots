@@ -4,8 +4,6 @@ In `packages.sh` script there are packages I used in my config and some more. It
 
 `install.sh` basically just copy every config to its respective place in $HOME.
 
----
-
 ### Programs used
 
 - betterlockscreen
@@ -26,8 +24,6 @@ In `packages.sh` script there are packages I used in my config and some more. It
 - xfce4-volumed
 - zathura
 - zsh
-
----
 
 ### Openbox keybinds
 
