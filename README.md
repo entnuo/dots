@@ -1,45 +1,56 @@
 ## dotfiles
 
-### dependecies
+In `packages.sh` script there are packages I used in my config and some more. It's encouraged to check it before running it. (it uses pacman, packages' names might be different depending on what distro you're using)
 
-`neovim openbox zsh rofi tint2 compton dunst feh numlockx xiccd mpd ncmpcpp xfce4-power-manager xfce4-volumed thunar redshift`
+`install.sh` basically just copy every config to its respective place in $HOME.
 
----
+### Programs used
 
-Other programs worth installing:
+- betterlockscreen
+- dmenu
+- dunst
+- fcitx5
+- mpv
+- nnn
+- neovim
+- openbox
+- picom
+- polybar
+- redshift
+- scrot
+- sxhkd
+- xfce4-power-manager
+- xfce4-volumed
+- zathura
+- zsh
 
-- ardour (music production)
-- fcitx with mozc (for inputing 日本語 text)
-- hypnotix (watch iptv)
-- lmms (music production)
-- mpv (media player)
-- nnn or ranger (cli file manager)
-- wine (to run some windows apps)
-- w3m (cli internet browser)
+### Sxhkd keybinds
 
-I guess that's all for now.
-
-### Openbox keybinds
-
-- `Shift` + `Alt` + `Left` Send window to desktop to the left
-- `Shift` + `Alt` + `Right` Send window to desktop to the right
-- `Super` + `1-5` Switch desktop
-- `Super` + `d` Toggle show desktop
-- `Alt` + `F4` Close window
-- `Super` + `Escape` Close window
-- `Alt` + `space` Show menu
-- `Print` Scrot -s (choose screenshot area)
-- `Super` + `Print` Scrot (screenshot whole screen)
-- `Super` + `l` Move to edge east (50%)
-- `Super` + `h` Move to edge west (50%)
-- `Super` + `Space` Toggle decorations
-- `Super` + `Shift` + `l` Betterlockscreen -l blur
-- `Super` + `Shift` + `x` Betterlockscreen -l blur
-- `Control` + `Alt` + `t` st
 - `Super` + `Return` st
-- `W` + `Shift` + `e` dmenu_\run_\history (rofi like script available at [suckless.org](https://tools.suckless.org/dmenu/scripts/dmenu_run_with_command_history/))
-- `Super` + `Shift` + `g` powermenu script
-- `Super` + `k` Maximize
-- `Super` + `j` Minimize/Iconify
-- `Super` + `Left Click` Move window around
-- `Super` + `Right Click` Resize window
+- `Control` + `Alt` + `t` st
+- `Super` + `Shift` + `e` dmenu_\run_\history (rofi like script available at [suckless.org](https://tools.suckless.org/dmenu/scripts/dmenu_run_with_command_history/)) or dmenu_run
+- `Super` + `r` Reload sxhkd
+- `Super` + `Shift` + `g` powermenu (script)
+- `Super` + `Shift` + `x` Betterlockscreen -l blur
+- `XF86AudioRaiseVolume` Volume +2
+- `XF86AudioLowerVolume` Volume -2
+- `XF86AudioMute` Mute
+- `Print` scrot -s (choose screenshot area), open in nsxiv and copy image to clipboard
+- `Super` + `Print` scrot (whole screen), open in nsxiv and copy image to clipboard
+- `Super` + `k` killprocess (script)
+- `Super` + `Alt` + `q` Quit bspwm
+- `Super` + `Alt` + `r` Restart bspwm
+- `Super` + `Escape` Close window
+- `Alt` + `F4` Close window
+- `Super` + `t` tiled
+- `Super` + `Shift` + `t` pseudo tiled
+- `Super` + `Shift` + `s` floating
+- `Super` + `Shift` + `f` fullscreen
+- `Super` + `{h,j,k,l}` focus in the given direction
+- `Super` + `Shift` + `{h,j,k,l}` switch window location
+- `Alt` + `Tab` well… alt-tab
+- `Super` + `1-6` switch to the given desktop
+- `Super` + `Shift` + `1-6` send window to the given desktop and follow it
+- `Super` + `Alt` + `{h,j,k,l}` expand window
+- `Super` + `Alt` + `Shift` + `{h,j,k,l}` contract window
+- `Super` + `{Left,Down,Up,Right}` move floating window
