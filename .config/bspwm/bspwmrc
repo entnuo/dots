@@ -18,9 +18,9 @@ bspc rule -a firefox:Toolkit:Picture-in-Picture focus=off state=floating border=
 bspc rule -a firefox:Places focus=off state=floating sticky=on
 bspc rule -a 'firefox:firefox:Save Image' state=floating sticky=on
 bspc rule -a keepassxc state=floating follow=on focus=on
-bspc rule -a mpv state=floating follow=on focus=on rectangle=+0+0
+bspc rule -a mpv state=floating follow=on focus=on center=on
 bspc rule -a MEGAsync state=floating follow=on focus=on border=off
-bspc rule -a Nsxiv state=floating follow=on focus=on rectangle=+0+0
+bspc rule -a Nsxiv state=floating follow=on focus=on center=on
 bspc rule -a polybar layer=above
 bspc rule -a scrcpy state=floating
 bspc rule -a tabbed focus=off
