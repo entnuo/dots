@@ -43,6 +43,10 @@ super + Print
 super + k
     killprocess
 
+# dmenuemoji (script)
+super + e
+    dmenuemoji
+
 #
 # bspwm hotkeys
 #
