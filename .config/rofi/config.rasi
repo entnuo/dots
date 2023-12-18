@@ -1,7 +1,0 @@
-configuration {
-	modi: "run,window";
-	width: 450;
-	lines: 10;
-	terminal: "st";
-}
-@import "/usr/share/rofi/themes/android_notification.rasi"
