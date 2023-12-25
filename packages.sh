@@ -13,9 +13,15 @@
 # intel-ucode will be installed, so remember to run `sudo grub-mkconfig -o /boot/grub/grub.cfg`
 # and tlp will be as well, so enable/start it (tlp.service)
 
-sudo pacman -S bspwm discord dmenu dunst fcitx5 fcitx5-qt fcitx5-gtk fcitx5-mozc feh ffmpeg firefox \
-    gufw intel-ucode keepassxc libsixel \
-    mpv nnn numlockx network-manager-applet neovim noto-fonts noto-fonts-cjk noto-fonts-extra pandoc-cli pavucontrol picom polybar pulseaudio pulseaudio-alsa pulsemixer redshift \
-    scrcpy scrot sxhkd tlp thunar ttf-font-awesome ttf-joypixels ttf-liberation wine xfce4-power-manager xsettingsd yt-dlp zathura zathura-pdf-mupdf zsh
+sudo pacman -S bspwm dash discord dmenu dunst fcitx5 fcitx5-qt fcitx5-gtk fcitx5-mozc feh ffmpeg firefox \
+    gitui gufw intel-ucode keepassxc libsixel \
+    mpv nnn numlockx neovim noto-fonts-cjk pandoc-cli pavucontrol picom redshift \
+    scrcpy scrot stow sxhkd texlive-basic tlp ttf-joypixels ttf-liberation wine xdo xorg-backlight yt-dlp zathura zathura-pdf-mupdf zsh
 
-yay -S ttf-symbola ttf-vlgothic hypnotix betterlockscreen nsxiv xfce4-volumed
+yay -S betterlockscreen \
+    hypnotix lemonbar-xft-git \
+    nsxiv siji-git \
+    tabbed-git ttf-vlgothic xtitle
+
+# plugins for nnn
+sh -c "$(curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs)"

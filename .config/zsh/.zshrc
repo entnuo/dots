@@ -7,7 +7,7 @@ HISTSIZE=100000
 SAVEHIST=100000
 
 # Completion
-autoload -U compinit; compinit; _comp_options+=(globdots)
+autoload -U compinit; _comp_options+=(globdots)
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 
@@ -25,8 +25,14 @@ setopt globdots
 setopt hist_ignore_all_dups     # Do not put duplicated command into history list
 setopt hist_save_no_dups        # Do not save duplicated command
 setopt hist_reduce_blanks       # Remove unnecessary blanks
+setopt hist_find_no_dups        # 
+setopt hist_save_no_dups        # 
 setopt hist_verify              #
 setopt inc_append_history       # 
+
+setopt correct                  # Correct commancds
+export SPROMPT="Correct %R to %r? [Yes, No, Abort, Edit] "
+#autoload -U colors && colors
 
 bindkey -v  # vi mode
 bindkey '^[[7~' beginning-of-line # Home in my keyboard

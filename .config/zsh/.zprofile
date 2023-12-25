@@ -5,6 +5,7 @@ export GTK_IM_MODULE='fcitx'
 export QT_IM_MODULE='fcitx'
 export SDL_IM_MODULE='fcitx'
 export XMODIFIERS='@im=fcitx'
+#export XMODIFIERS='@im=none emacs'
 
 # XDG paths
 export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
@@ -15,7 +16,7 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 export LESSHISTFILE=-
 
 # Some paths
-path+=$HOME/.scripts/:$HOME/Documents/android/platform-tools/
+path+=$HOME/.scripts/:$HOME/Documents/android/platform-tools/:$HOME/.cargo/bin/
 
 # Fixing path
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
@@ -42,3 +43,10 @@ fi
 # nnn fifo and plugins
 export NNN_FIFO=/tmp/nnn.fifo
 export NNN_PLUG='v:preview-tabbed'
+export NNN_TMPFILE='/tmp/.lastd'
+
+# fix some zsh error character not in range
+export LC_ALL=en_US.UTF-8
+
+# prevents mpv from freezing my computer (?)
+export MESA_LOADER_DRIVER_OVERRIDE=i965

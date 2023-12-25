@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/dash
 
 bspc monitor -d 一 二 三 ゲーム 勉強 音楽 &
 # bspc monitor -d 001 010 011 100 101 110
@@ -17,31 +17,30 @@ bspc rule -r *:*
 bspc rule -a firefox:Toolkit:Picture-in-Picture focus=off state=floating border=off sticky=on layer=above
 bspc rule -a firefox:Places focus=off state=floating sticky=on
 bspc rule -a 'firefox:firefox:Save Image' state=floating sticky=on
+bspc rule -a 'firefox:Extension: (NoScript) - NoScript XSS Warning — Mozilla Firefox' state=floating sticky=on
 bspc rule -a keepassxc state=floating follow=on focus=on
 bspc rule -a mpv state=floating follow=on focus=on center=on
 bspc rule -a MEGAsync state=floating follow=on focus=on border=off
 bspc rule -a Nsxiv state=floating follow=on focus=on center=on
-bspc rule -a polybar layer=above
+#bspc rule -a Polybar layer=above
 bspc rule -a scrcpy state=floating
 bspc rule -a tabbed focus=off
 bspc rule -a Thunar state=floating follow=on focus=on
 bspc rule -a firefox desktop='^1' follow=off focus=on
+bspc rule -a thunderbird:*:* desktop='^2' state=floating follow=off
 bspc rule -a discord desktop='^3' follow=off focus=off
-bspc rule -a Steam:*:* desktop='^4' state=floating follow=off focus=on
+bspc rule -a steam:*:* desktop='^4' state=floating follow=off focus=on
 bspc rule -a Anki desktop='^5' state=floating follow=on focus=on
 bspc rule -a Pavucontrol desktop='^6' state=floating follow=on focus=on
 
-(pkill sxhkd ; sxhkd) &
-(pkill dunst ; dunst) &
-(pkill megasync ; megasync) &
-(pkill nm-applet ; nm-applet) &
+pgrep -x sxhkd > /dev/null || sxhkd &
+pgrep -x dunst > /dev/null || dunst &
+pgrep -x megasync > /dev/null || megasync &
 ${HOME}/.scripts/fehbg &
 ${HOME}/.scripts/welcome &
-${HOME}/.config/polybar/launch.sh &
+pgrep -x lemonbar > /dev/null || ${HOME}/.scripts/limonada &
 xsetroot -cursor_name left_ptr &
 
-(pkill fcitx ; sleep 3s && fcitx5 || fcitx) &
-(pkill xfce4-power-manager ; sleep 5s && xfce4-power-manager) &
-(pkill xfce4-volumed ; sleep 5s && xfce4-volumed) &
-(pkill redshift ; pkill -f "sleep 10s" ; sleep 10s && redshift) &
-(pkill Discord ; pkill -f "sleep 2m 30s" ; sleep 2m 30s && discord --start-minimized) &
+sleep 3;pgrep -x fcitx5 > /dev/null || pgrep -x fcitx > /dev/null || fcitx5 || fcitx &
+sleep 10;pgrep -x redshift > /dev/null || redshift &
+#sleep 2m 30s;pgrep -x Discord > /dev/null || discord --start-minimized &

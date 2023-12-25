@@ -4,16 +4,16 @@
 
 # terminal emulator
 super + Return
-	st
+	st || alacritty || $TERMINAL
 ctrl + alt + t
-	st
+	st || alacritty || $TERMINAL
 
 # program launcher (script)
 super + shift + e
 	dmenu_run_history || dmenu_run
 
 # make sxhkd reload its configuration files:
-super + r
+super + shift + r
 	pkill -USR1 -x sxhkd && notify-send 'sxhkd' 'Reloaded config'
 
 # powermenu (script)
@@ -22,30 +22,55 @@ super + shift + g
 
 # lockscreen
 super + shift + x
-    betterlockscreen -l blur
+    notify-send "Locking up" "and suspending" & \
+    sleep 1.1s && xset dpms force suspend ; betterlockscreen -l blur
 
-# fn volume keys
-XF86Audio{RaiseVolume,LowerVolume,Mute}
-    amixer -D pulse set Master {2%+ unmute,2%- unmute,toggle}
+# fn volume keys (script)
+{_,super + }XF86Audio{RaiseVolume,LowerVolume,Mute}
+    volume {inc,sinc,dec,sdec,tog}
+
+# fn brightness keys (script)
+XF86MonBrightness{Up,Down}
+    luz {inc,dec}
 
 # print
 @Print
-    scrot -s -e 'nsxiv $f && xclip -selection clipboard -t image/png $f'
+    scrot -q 90 -s -e 'nsxiv $f && xclip -selection clipboard -t image/png $f'
 super + Print
-    scrot -e 'nsxiv $f && xclip -selection clipboard -t image/png $f'
-
-#  @Print + {ctrl}
-#      scrot -s {-e 'nsxiv $f && xclip -selection clipboard -t image/png $f'}
-#  super + {ctrl + }Print
-#      scrot {-e 'nsxiv $f && xclip -selection clipboard -t image/png $f'}
+    scrot -q 90 -e 'nsxiv $f && xclip -selection clipboard -t image/png $f'
 
 # kill process (script)
 super + k
     killprocess
 
 # dmenuemoji (script)
-super + e
+super + r ; e
     dmenuemoji
+
+# nnn (file manager)
+super + n
+    st nnn -H || alacritty -e nnn -H
+
+# Generate password by https://my-take-on.tech/2020/07/03/some-tricks-for-sxhkd-and-bspwm/
+super + r ; g ; p
+    tr -dc "a-zA-Z0-9_#@.-" < /dev/urandom | head -c 17 | xclip -selection clipboard
+
+# dmpgs, A d(menu) m(an) p(a)g(s) s(earcher) or smthng idgaf
+super + r ; m
+    man -k . | dmenu -l 10 -p "Man page:" | awk '\{print $1\}' | xargs man --troff-device=pdf | zathura -
+
+# show and executed scripts from my scripts folder ($HOME/.script have to be in $PATH)
+super + r ; s
+    ls ${HOME}/.scripts | sed '/.md/d' | dmenu -l 10 -p "Script:" | sh
+
+# restart polybar (cuz sometimes it starts bugged)
+# super + r ; p
+#     sh ${HOME}/.config/polybar/launch.sh
+
+# select a random wallpaper
+super + r ; c ; b
+    WALL=$(find "$\{HOME\}/Pictures/wallpapers/" -type f | sort -R | head -1); \
+    feh --bg-fill --no-fehbg "$WALL" && notify-send "Wallpaper" "has changed"
 
 #
 # bspwm hotkeys
@@ -61,18 +86,6 @@ super + Escape
 alt + F4
 	bspc node -c
 
-# alternate between the tiled and monocle layout
-super + m
-	bspc desktop -l next
-
-# send the newest marked node to the newest preselected node
-super + y
-	bspc node newest.marked.local -n newest.!automatic.local
-
-# swap the current node and the biggest node
-super + g
-	bspc node -s biggest
-
 #
 # state/flags
 #
@@ -82,8 +95,8 @@ super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
-super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
+# super + ctrl + {m,x,y,z}
+# 	bspc node -g {marked,locked,sticky,private}
 
 #
 # focus/swap
@@ -124,20 +137,20 @@ super + {_,shift + }{1-9,0}
 #
 
 # preselect the direction
-super + ctrl + {h,j,k,l}
-	bspc node -p {west,south,north,east}
+#super + ctrl + {h,j,k,l}
+#	bspc node -p {west,south,north,east}
 
 # preselect the ratio
-super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
+#super + ctrl + {1-9}
+#	bspc node -o 0.{1-9}
 
 # cancel the preselection for the focused node
-super + ctrl + space
-	bspc node -p cancel
+#super + ctrl + space
+#	bspc node -p cancel
 
 # cancel the preselection for the focused desktop
-super + ctrl + shift + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+#super + ctrl + shift + space
+#	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 #
 # move/resize

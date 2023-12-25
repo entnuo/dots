@@ -1,0 +1,403 @@
+* Emacs config
+This is my emacs configuration, it's a work in progress.
+** Visual
+*** TODO GUI
+**** Tool bar, menu bar, scrollbar
+Useless, disable 'em.
+#+BEGIN_SRC emacs-lisp
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1)
+#+END_SRC
+
+**** Visual bell
+#+BEGIN_SRC emacs-lisp
+  (setq visible-bell 1)
+#+END_SRC
+
+**** Font
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'default-frame-alist
+                         '(font . "DejaVu Sans Mono-11"))
+#+END_SRC
+*** Theme
+#+BEGIN_SRC emacs-lisp
+  ;; previous theme by: https://github.com/rawleyfowler/tokyo-theme.el
+  ;; (load-file "~/.emacs.d/themes/tokyo.el")
+
+  ;; doom's tokyo night theme
+
+  (use-package doom-themes
+    :ensure t
+    :config
+    ;; Global settings (defaults)
+    (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+	  doom-themes-enable-italic t) ; if nil, italics is universally disabled
+    (load-theme 'doom-tokyo-night t)
+
+    ;; Enable flashing mode-line on errors
+    (doom-themes-visual-bell-config)
+    ;; Enable custom neotree theme (all-the-icons must be installed!)
+    ;; (doom-themes-neotree-config)
+    ;; or for treemacs users
+    ;; (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
+    ;; (doom-themes-treemacs-config)
+    ;; Corrects (and improves) org-mode's native fontification.
+    (doom-themes-org-config))
+#+END_SRC
+
+*** Mode line
+This works for now.
+#+BEGIN_SRC emacs-lisp
+  (use-package mood-line
+    :ensure t
+    :config
+    (mood-line-mode))
+#+END_SRC
+*** Numbers
+#+BEGIN_SRC emacs-lisp
+  (setq display-line-numbers-type 'relative)
+  (global-display-line-numbers-mode) 
+#+END_SRC
+
+*** Show matching parenthese
+#+BEGIN_SRC emacs-lisp
+  (show-paren-mode 1)
+#+END_SRC
+
+*** Autopair (might change)
+#+BEGIN_SRC emacs-lisp
+  (electric-pair-mode)
+#+END_SRC
+** Plugins
+*** Dashboard
+#+BEGIN_SRC emacs-lisp
+  ;; Disable startup screen
+  (setq inhibit-startup-message t)
+
+  ;; Install projectile
+  (use-package projectile
+    :ensure t)
+
+  ;; Use dashboard instead :)
+  (use-package dashboard
+    :ensure t
+    :config
+      (dashboard-setup-startup-hook)
+      ;; (setq dashboard-startup-banner "~/.emacs.d/img/0c85ed5ef66fe8c40d83a36a68bb853d.jpg")
+      ;; (setq dashboard-startup-banner "~/.emacs.d/img/a.jpg")
+      (setq dashboard-startup-banner "~/.emacs.d/img/fusako.png")
+      (setq dashboard-items '((recents  . 3)
+			      (projects . 3)))
+      (setq dashboard-banner-logo-title "可愛い女性が大好き")
+      (setq dashboard-center-content t))
+#+END_SRC
+
+*** IDO
+**** Enable IDO mode
+#+BEGIN_SRC emacs-lisp
+  (setq ido-enable-flex-matching t)
+  (setq ido-everywhere t)
+  (ido-mode 1)
+#+END_SRC
+**** IDO Vertical
+#+BEGIN_SRC emacs-lisp
+  (use-package ido-vertical-mode
+    :ensure t
+    :init
+    (ido-vertical-mode 1))
+  (setq ido-vertical-define-keys 'C-n-and-C-p-only)
+#+END_SRC
+**** Smex
+#+BEGIN_SRC emacs-lisp
+  (use-package smex
+    :ensure t
+    :init (smex-initialize)
+    :bind
+    ("M-x" . smex))
+#+END_SRC
+
+*** Org
+**** a plugin to ignore heading when exporting to latex bla bla bla
+#+begin_src emacs-lisp
+  (use-package org-contrib
+    :config
+    (require 'ox-extra)
+    (ox-extras-activate '(ignore-headlines)))
+#+end_src
+
+**** old template system
+#+begin_src emacs-lisp
+  (require 'org-tempo)
+#+end_src
+
+*** Async
+Async process, pretty useful.
+#+BEGIN_SRC emacs-lisp
+  (use-package async
+    :ensure t
+    :init (dired-async-mode 1))
+#+END_SRC
+
+*** Evil
+#+BEGIN_SRC emacs-lisp
+  (unless (package-installed-p 'evil)
+    (package-install 'evil))
+  (setq evil-want-C-u-scroll t)
+  (require 'evil)
+  (evil-mode 1)
+
+  ;; for C-r (redo)
+  (use-package undo-tree
+    :ensure t
+    :after evil
+    :diminish
+    :config
+    (evil-set-undo-system 'undo-tree)
+    (global-undo-tree-mode 1))
+#+END_SRC
+
+**** fold and unfold in org
+for some reason evil mode wasnt folding/unfolding (tab was remaped for somethig else),
+so i made this function
+#+begin_src emacs-lisp
+  (defun my/org-tab-cycle ()
+    "Cycle visibility of the current entry in Org mode."
+    (interactive)
+    (if (org-at-heading-p)
+        (org-cycle)
+      (evil-shift-left-line)))
+
+  (define-key evil-normal-state-map (kbd "TAB") 'my/org-tab-cycle)
+  (define-key evil-motion-state-map (kbd "TAB") 'my/org-tab-cycle)
+
+#+end_src
+
+**** drag text
+#+begin_src emacs-lisp
+  (use-package drag-stuff
+    :ensure t
+    :config
+    (drag-stuff-global-mode 1)
+    (drag-stuff-define-keys)
+    (define-key evil-visual-state-map (kbd "K") 'drag-stuff-up)
+    (define-key evil-visual-state-map (kbd "J") 'drag-stuff-down))
+#+end_src
+
+*** Which-key
+#+BEGIN_SRC emacs-lisp
+  (use-package which-key
+      :ensure t
+      :init
+      (which-key-mode))
+#+END_SRC
+
+*** Fcitx and Mozc
+#+BEGIN_SRC emacs-lisp
+  (use-package mozc
+    :ensure t)
+
+  (require 'mozc)
+  (setq default-input-method "japanese-mozc")
+  (setq mozc-candidate-style 'overlay)
+#+END_SRC
+
+*** Ace window
+#+BEGIN_SRC emacs-lisp
+  (use-package ace-window
+    :ensure t
+    :bind
+    ("M-p" . ace-window))
+#+END_SRC
+
+*** Dired sidebar
+#+BEGIN_SRC emacs-lisp
+  (use-package dired-sidebar
+    ;; :bind (("C-x C-n" . dired-sidebar-toggle-sidebar))
+    :bind (("M-n" . dired-sidebar-toggle-sidebar))
+    :ensure t
+    :commands (dired-sidebar-toggle-sidebar)
+    :init
+    (add-hook 'dired-sidebar-mode-hook
+	      (lambda ()
+		(unless (file-remote-p default-directory)
+		  (auto-revert-mode))))
+    :config
+    (push 'toggle-window-split dired-sidebar-toggle-hidden-commands)
+    (push 'rotate-windows dired-sidebar-toggle-hidden-commands)
+
+    (setq dired-sidebar-subtree-line-prefix "__")
+    (setq dired-sidebar-theme 'ascii)
+    (setq dired-sidebar-use-term-integration t)
+    (setq dired-sidebar-use-custom-font t))
+#+END_SRC
+*** Rainbow
+#+BEGIN_SRC emacs-lisp
+  (use-package rainbow-mode
+    :ensure t
+    :init
+    (add-hook 'prog-mode-hook 'rainbow-mode))
+#+END_SRC
+*** Citations
+#+BEGIN_SRC emacs-lisp
+  (use-package org-ref
+    :ensure t)
+#+END_SRC
+*** TODO Vterm
+#+BEGIN_SRC emacs-lisp
+  ;; (use-package vterm
+  ;;   :ensure t)
+#+END_SRC
+*** TODO Highlight terms in code-comments
+#+BEGIN_SRC emacs-lisp
+  ;; (use-package hl-prog-extra
+  ;;   :commands (hl-prog-extra-mode)
+  ;;   :init (add-hook 'prog-mode-hook #'hl-prog-extra-mode))
+#+END_SRC
+*** TODO Highlight numbers
+#+BEGIN_SRC emacs-lisp
+  ;; (use-package highlight-numbers
+  ;;   :hook ((prog-mode) . highlight-numbers-mode))
+#+END_SRC
+*** TODO Defer loading packages
+#+BEGIN_SRC emacs-lisp
+  ;; (setq use-package-always-defer t)
+#+END_SRC
+
+*** TODO Tree-sitter
+#+BEGIN_SRC emacs-lisp
+  ;; (use-package tree-sitter
+  ;;   :ensure t)
+  ;; (tree-sitter-hl-mode)
+#+END_SRC
+** Clipboard
+#+BEGIN_SRC emacs-lisp
+  ;; Cutting & pasting use the system clipboard
+  (setq select-enable-clipboard t)
+  ;; Treat clipboard input as UTF-8 string first; compound text next, etc
+  (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
+  ;; Paste at text-cursor instead of mouse-cursor location
+  (setq mouse-yank-at-point t)
+#+END_SRC
+** Indentation
+#+BEGIN_SRC emacs-lisp
+  (setq default-tab-width 4)
+  (setq tab-width 4)
+  (setq default-fill-column 80)
+  (setq fill-column 80)
+  (setq-default evil-indent-convert-tabs nil)
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 4)
+  (setq-default evil-shift-round nil)
+#+END_SRC
+** Misc
+*** Iso-transl
+With this I can type characters like ~ á à ä â ã etc. inside emacs,
+ since I use a br-abnt2 keyboard layout (brazilian portuguese).
+ Disable if you don't need it.
+#+BEGIN_SRC emacs-lisp
+  (require 'iso-transl)
+#+END_SRC
+*** Disable backup files
+#+BEGIN_SRC emacs-lisp
+  (setq make-backup-files nil)
+  (setq auto-save-file-default nil)
+#+END_SRC
+
+*** Prompt alias
+#+BEGIN_SRC emacs-lisp
+  (defalias 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
+*** Set UTF-8 encoding
+#+BEGIN_SRC emacs-lisp
+  (setq locale-coding-system 'utf-8)
+  (set-terminal-coding-system 'utf-8)
+  (set-keyboard-coding-system 'utf-8)
+  (set-selection-coding-system 'utf-8)
+  (prefer-coding-system 'utf-8)
+#+END_SRC
+
+*** Highlight current line
+#+BEGIN_SRC emacs-lisp
+  (global-hl-line-mode t)
+#+END_SRC
+*** Scrolling
+**** Scroll N lines to screen edge
+#+BEGIN_SRC emacs-lisp
+  ;; This was taken from https://github.com/ideasman42/emacs-for-vimmers
+
+  ;; Scroll N lines to screen edge
+  (setq scroll-margin 3)
+
+  ;; Scroll back this many lines to being the cursor back on screen
+  (setq scroll-conservatively scroll-margin)
+
+  ;; Keyboard scroll one line at a time
+  (setq scroll-step 1)
+  ;; Don't accelerate scrolling
+  (setq mouse-wheel-progressive-speed nil)
+  ;; Don't use timer when scrolling
+  (setq mouse-wheel-inhibit-click-time nil)
+
+  ;; Preserve line/column (nicer page up/down)
+  (setq scroll-preserve-screen-position t)
+  ;; Move the cursor to top/bottom even if the screen is viewing top/bottom (for page up/down)
+  (setq scroll-error-top-bottom t)
+
+  ;; Always redraw immediately when scrolling
+  (setq fast-but-imprecise-scrolling nil)
+  (setq jit-lock-defer-time 0)
+#+END_SRC
+*** Window title
+Include the buffer name and modified status.
+#+BEGIN_SRC emacs-lisp
+  (setq-default frame-title-format "%b %& emacs")
+#+END_SRC
+*** Keep cursors and highlights in current window only
+#+BEGIN_SRC emacs-lisp
+  (setq cursor-in-non-selected-windows 'hollow)
+#+END_SRC
+*** Highlight inactive windows
+#+BEGIN_SRC emacs-lisp
+  (setq highlight-nonselected-windows t)
+#+END_SRC
+*** Disable bidirectional text support
+#+BEGIN_SRC emacs-lisp
+  (setq bidi-display-reordering nil)
+#+END_SRC
+*** Wrap text
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'text-mode-hook 'visual-line-mode)
+#+END_SRC
+*** Kill buffers
+#+BEGIN_SRC emacs-lisp
+  ;; empty message buffer
+  (setq initial-scratch-message "")
+
+  ;; if exists, kill scratch buffer
+  (if (get-buffer "*scratch*")
+      (kill-buffer "*scratch*"))
+#+END_SRC
+*** Org mode indent by default and fold
+#+BEGIN_SRC emacs-lisp
+  ;;(setq org-startup-indented t)
+
+  (setq org-startup-folded t)
+#+END_SRC
+
+*** reload/visit this file
+#+begin_src emacs-lisp
+  (defun config-visit()
+    "Visit the emacs config directory, to quickly access and make changes."
+    (interactive)
+    (find-file "~/.emacs.d/"))
+  (global-set-key (kbd "C-c e") 'config-visit)
+
+  ;; a function to reload this file
+  (defun config-reload()
+    "Reload the user config, to get the latest saved changes"
+    (interactive)
+    (load user-init-file))
+  (global-set-key (kbd "C-c r") 'config-reload)
+#+end_src
