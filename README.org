@@ -1,0 +1,93 @@
+** dotfiles
+
+In `packages.sh` script there are packages I used in my config and some more. It's encouraged to check it before running it. (it uses pacman, packages' names might be different depending on what distro you're using)
+
++`install.sh` basically just copy every config to its respective place in $HOME.+
+Use ~stow~:
+#+BEGIN_SRC shell
+  git clone https://github.com/entnuo/dots && cd dots
+  stow -v -d . -t $HOME --stow . # this creates sysmbolics links to your $HOME
+
+  # if you want to restow
+  stow -v -R -t $HOME
+#+END_SRC
+
+Make sure the =.fonts/= directories exist; in case they don't:
+#+begin_src shell
+  mkdir -v $HOME/.fonts
+#+end_src
+
+*** Programs used
+
+- betterlockscreen
+- bspwm
+- dmenu
+- dunst
+- fcitx5
+- firefox
+- lemonbar
+- mpv
+- nnn
+- neovim
+- picom
+- redshift
+- scrot
+- sxhkd
+- zathura
+- zsh
+
+*** Sxhkd keybinds
+**** General binds
+
+| Keybinds                                | Command                                                                         |
+|-----------------------------------------+---------------------------------------------------------------------------------|
+| ~Super~ + ~Return~                      | ~st~ (terminal)                                                                 |
+| ~Super~ + ~Alt~ + ~t~                   | ~st~ (terminal)                                                                 |
+| ~Super~ + ~Shift~ + ~e~                 | ~dmenu_run_history~ (rofi like script available at [[https://tools.suckless.org/dmenu/scripts/dmenu_run_with_command_history/][suckless.org]] or ~dmenu_run~) |
+| ~Super~ + ~shift~ + ~r~                 | Reload ~sxhkd~                                                                  |
+| ~Super~ + ~Shift~ + ~x~                 | ~betterlockscreen -l blur~                                                      |
+| ~Print~                                 | ~scrot -s~ choose screenshot area, open in nsxiv and copy image to clipboard    |
+| ~Super~ + ~Print~                       | ~scrot~ screenshot whole screen, open in nsxiv and copy image to clipboard      |
+| ~Super~ + ~Alt~ + ~q~                   | Quit ~bspwm~                                                                    |
+| ~Super~ + ~Alt~ + ~r~                   | Restart ~bspwm~                                                                 |
+| ~Super~ + ~Escape~                      | Close window                                                                    |
+| ~Alt~ + ~F4~                            | Close window                                                                    |
+| ~Super~ + ~t~                           | tiled                                                                           |
+| ~Super~ + ~Shift~ + ~t~                 | pseudo tiled                                                                    |
+| ~Super~ + ~Shift~ + ~s~                 | floating                                                                        |
+| ~Super~ + ~Shift~ + ~f~                 | fullscreen                                                                      |
+| ~Super~ + ~{h,j,k,l}~                   | focus in the given direction                                                    |
+| ~Super~ + ~Shift~ + ~{h,j,k,l}~         | switch window location                                                          |
+| ~Alt~ + ~Tab~                           | well... alt-tab                                                                 |
+| ~Alt~ + ~Shift~ + ~Tab~                 | ... alt-shift-tab                                                               |
+| ~Super~ + ~1-6~                         | switch to the given desktop                                                     |
+| ~Super~ + ~Shift~ + ~1-6~               | send window to the given desktop and follow it                                  |
+| ~Super~ + ~Alt~ + ~{h,j,k,l}~           | expand window                                                                   |
+| ~Super~ + ~Alt~ + ~Shift~ + ~{h,j,k,l}~ | contract window                                                                 |
+| ~Super~ + ~{Left,Down,Up,Right}~        | move floating window                                                            |
+| ~Super~ + ~Left Mouse Click~            | move floating window                                                            |
+|-----------------------------------------+---------------------------------------------------------------------------------|
+
+**** Scripts keys and other shortcuts 
+These are available on my repo ~scripts~.
+
+| Keybind                          | Command                                                                |
+|----------------------------------+------------------------------------------------------------------------|
+| ~Super~ + ~shift~ + ~e~          | ~dmenu_menu_history~ (rofi like script at [[https://tools.suckless.org/dmenu/scripts/dmenu_run_with_command_history/][suckless.org]] or ~dmenu_run~) |
+| ~Super~ + ~shift~ + ~g~          | ~powermenu~                                                            |
+| ~Super~ + ~k~                    | ~killprocess~                                                          |
+| ~XF86AudioRaiseVolume~           | ~volume inc~                                                           |
+| ~XF86AudioLowerVolume~           | ~volume dec~                                                           |
+| ~XF86AudioMute~                  | ~volume tog~                                                           |
+| ~Super~ + ~XF86AudioRaiseVolume~ | ~volume sinc~                                                          |
+| ~Super~ + ~XF86AudioLowerVolume~ | ~volume sdec~                                                          |
+| ~Super~ + ~r~ ; ~e~              | ~dmenuemoji~                                                           |
+|----------------------------------+------------------------------------------------------------------------|
+
+| Keybind                   | Command                                                                                 |
+|---------------------------+-----------------------------------------------------------------------------------------|
+| ~Super~ + ~r~ ; ~g~ ; ~p~ | Generate random password and paste into clipboard                                       |
+| ~Super~ + ~r~ ; ~m~       | Spawn a list in dmenu of man pages and open the selected one in zathura                 |
+| ~Super~ + ~r~ ; ~s~       | List scripts in dmenu from ~$HOME/.scripts~ and execute selected                        |
+| ~Super~ + ~r~ ; ~c~ ; ~b~ | Choose a random wallpaper from ~$HOME/Pictures/wallpapers~ and set as a temp background |
+|---------------------------+-----------------------------------------------------------------------------------------|
