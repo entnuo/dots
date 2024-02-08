@@ -13,7 +13,7 @@ dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XA
 
 setxkbmap -layout br -option compose:caps
 xset s 1200 600
-xset dpms 2400 6600 0
+xset dpms 2400 6600 6605
 xset +fp $HOME/.local/share/fonts
 xset fp rehash
 numlockx on
@@ -21,6 +21,6 @@ $HOME/.scripts/mouse-sets
 xrdb .Xresources
 picom --vsync --backend glx -b
 
-#exec xfce4-session
-#exec openbox-session
-exec bspwm
+#exec bspwm
+
+while type dwm >/dev/null ; do dwm && continue || break ;done 

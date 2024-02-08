@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	st || alacritty || $TERMINAL
+	dash -c "st tmux || $TERMINAL"
 ctrl + alt + t
 	st || alacritty || $TERMINAL
 
@@ -23,7 +23,7 @@ super + shift + g
 # lockscreen
 super + shift + x
     notify-send "Locking up" "and suspending" & \
-    sleep 1.1s && xset dpms force suspend ; betterlockscreen -l blur
+    sleep 1.1s && xset dpms force suspend ; slock
 
 # fn volume keys (script)
 {_,super + }XF86Audio{RaiseVolume,LowerVolume,Mute}
@@ -40,7 +40,7 @@ super + Print
     scrot -q 90 -e 'nsxiv $f && xclip -selection clipboard -t image/png $f'
 
 # kill process (script)
-super + k
+super + shift + k
     killprocess
 
 # dmenuemoji (script)
@@ -49,7 +49,7 @@ super + r ; e
 
 # nnn (file manager)
 super + n
-    st nnn -H || alacritty -e nnn -H
+    dash -c "st nnn -H"
 
 # Generate password by https://my-take-on.tech/2020/07/03/some-tricks-for-sxhkd-and-bspwm/
 super + r ; g ; p
@@ -71,6 +71,10 @@ super + r ; s
 super + r ; c ; b
     WALL=$(find "$\{HOME\}/Pictures/wallpapers/" -type f | sort -R | head -1); \
     feh --bg-fill --no-fehbg "$WALL" && notify-send "Wallpaper" "has changed"
+
+# sdfl (simple (or stupid) dmenu file manager)
+super + r ; f
+    sdfl
 
 #
 # bspwm hotkeys
@@ -157,12 +161,12 @@ super + {_,shift + }{1-9,0}
 #
 
 # expand a window by moving one of its side outward
-super + alt + {h,j,k,l}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+# super + alt + {h,j,k,l}
+# 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
-super + alt + shift + {h,j,k,l}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+# super + alt + shift + {h,j,k,l}
+# 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # move a floating window
 super + {Left,Down,Up,Right}

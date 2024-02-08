@@ -16,10 +16,10 @@
 sudo pacman -S bspwm dash discord dmenu dunst fcitx5 fcitx5-qt fcitx5-gtk fcitx5-mozc feh ffmpeg firefox \
     gitui gufw intel-ucode keepassxc libsixel \
     mpv nnn numlockx neovim noto-fonts-cjk pandoc-cli pavucontrol picom redshift \
-    scrcpy scrot stow sxhkd texlive-basic tlp ttf-joypixels ttf-liberation wine xdo xorg-backlight yt-dlp zathura zathura-pdf-mupdf zsh
+    scrcpy scrot stow sxhkd texlive-basic tlp ttf-joypixels ttf-liberation wine xdo yt-dlp zathura zathura-pdf-mupdf zsh
 
 yay -S betterlockscreen \
-    hypnotix lemonbar-xft-git \
+    hypnotix lemonbar-xft-git light \
     nsxiv siji-git \
     tabbed-git ttf-vlgothic xtitle
 
