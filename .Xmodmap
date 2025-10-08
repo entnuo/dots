@@ -1,0 +1,4 @@
+keysym XF86AudioPrev = F4
+keysym XF86AudioPlay = F5
+keysym XF86AudioNext = F6
+!keysym XF86Search = F9

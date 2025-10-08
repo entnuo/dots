@@ -1,36 +1,31 @@
-local o = vim.opt
-local g = vim.g
+vim.opt.clipboard = 'unnamedplus'   -- use system clipboard 
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+vim.opt.mouse = 'v'                 -- allow the middle click to paste in Nvim
+vim.opt.mouse = 'a'                 -- allow the mouse to be used in Nvim (mouse 'v' needs to be first before mouse 'a' to work)
 
--- too lazy to label these under specific categories (comments from old config)
-o.clipboard = 'unnamedplus'  --   system clipboard
-o.cursorline = true          --   highlibe cursor line
-o.hlsearch = true            --   highlight search
-o.ignorecase = true          --   case insensitive
-o.swapfile = false           --   do not use a swapfile
-o.termguicolors = true       --   enables 24-bit colours
-o.wildignorecase = true      --   ignore case when completing file names
-o.wrap = true                --   (maybe ill change later)
-o.timeoutlen = 400
-o.scrolloff = 3
-o.lazyredraw = true
+-- Tab
+vim.opt.tabstop = 4                 -- number of visual spaces per TAB
+vim.opt.softtabstop = 4             -- number of spacesin tab when editing
+vim.opt.shiftwidth = 4              -- insert 4 spaces on a tab
+vim.opt.expandtab = true            -- tabs are spaces, mainly because of python
 
--- indent
-o.expandtab = true           --   use spaces when tab is inserted
-o.shiftwidth = 4             --   spaces autoindent use
-o.smartindent = true
+-- UI config
+vim.opt.number = true               -- show absolute number
+vim.opt.relativenumber = true       -- add numbers to each line on the left side
+vim.opt.numberwidth = 5             --   columns used for line number
+vim.opt.cursorline = true           -- highlight cursor line underneath the cursor horizontally
+vim.opt.splitbelow = true           -- open new vertical split bottom
+vim.opt.splitright = true           -- open new horizontal splits right
+vim.opt.termguicolors = true        -- enabl 24-bit RGB color in the TUI
+vim.opt.wrap = true                 -- for now
+vim.opt.scrolloff = 10
 
--- numbers
-o.number = true              --   add line number
-o.numberwidth = 4            --   columns used for line number
-o.relativenumber = true      --   relative number for each line
-
--- mouse
-o.mouse = 'v'                --   middle-click to paste
-o.mouse= 'a'                 --   enable mouse click. mouse=v needs to go first in order to mouse=a to be enabled
-
--- split
-o.splitbelow = true          --   new window from split is bellow the current one
-o.splitright = true          --   new window from split is put right of the current one
+-- Searching
+vim.opt.incsearch = true            -- search as characters are entered
+vim.opt.hlsearch = true             -- do highlight matches
+vim.opt.ignorecase = true           -- ignore case in searches by default
+vim.opt.smartcase = true            -- but make it case sensitive if an uppercase is entered
 
 -- disable nvim intro
-o.shortmess:append("sI")
+vim.opt.shortmess:append("sI")
+vim.opt.swapfile = false            -- do not use a swapfile

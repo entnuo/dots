@@ -28,28 +28,31 @@ super + shift + x
 # fn volume keys (script)
 {_,super + }XF86Audio{RaiseVolume,LowerVolume,Mute}
     volume {inc,sinc,dec,sdec,tog}
+super + shift + XF86AudioRaiseVolume
+    volume abovemax
 
 # fn brightness keys (script)
-XF86MonBrightness{Up,Down}
-    luz {inc,dec}
+{_,super + }XF86MonBrightness{Up,Down}
+    luz {inc,sinc,dec,sdec}
+super + shift + XF86MonBrightness{Up,Down}
+    luz {minc,mdec}
+
 
 # print
 @Print
-    scrot -q 90 -s -e 'nsxiv $f && xclip -selection clipboard -t image/png $f'
+    scrot -q 90 -s -e 'xclip -selection clipboard -t image/png $f && notify-send "Screenshot: $f taken"'
+    #scrot -q 90 -s -e 'nsxiv $f && xclip -selection clipboard -t image/png $f'
 super + Print
-    scrot -q 90 -e 'nsxiv $f && xclip -selection clipboard -t image/png $f'
+    scrot -q 90 -e 'xclip -selection clipboard -t image/png $f && notify-send "Screenshot: $f taken"'
+    #scrot -q 90 -e 'nsxiv $f && xclip -selection clipboard -t image/png $f'
 
 # kill process (script)
 super + shift + k
     killprocess
 
-# dmenuemoji (script)
-super + r ; e
-    dmenuemoji
-
 # nnn (file manager)
 super + n
-    dash -c "st nnn -H"
+    dash -c "st nnn -HD -T v"
 
 # Generate password by https://my-take-on.tech/2020/07/03/some-tricks-for-sxhkd-and-bspwm/
 super + r ; g ; p
@@ -61,7 +64,8 @@ super + r ; m
 
 # show and executed scripts from my scripts folder ($HOME/.script have to be in $PATH)
 super + r ; s
-    ls ${HOME}/.scripts | sed '/.md/d' | dmenu -l 10 -p "Script:" | sh
+#    ls ${HOME}/.scripts | sed '/.md/d' | dmenu -l 10 -p "Script:" | sh
+    find ${HOME}/.scripts ! -path "*/.git/*" ! -name '.gitignore' -type f ! -name '*.md' | sed 's!.*/!!' | sort | dmenu -l 10 -p 'Script:' | sh
 
 # restart polybar (cuz sometimes it starts bugged)
 # super + r ; p
@@ -69,12 +73,16 @@ super + r ; s
 
 # select a random wallpaper
 super + r ; c ; b
-    WALL=$(find "$\{HOME\}/Pictures/wallpapers/" -type f | sort -R | head -1); \
+    WALL=$(find "$\{HOME\}/Pictures/wallpapers/" -maxdepth 1 -type f | sort -R | head -1); \
     feh --bg-fill --no-fehbg "$WALL" && notify-send "Wallpaper" "has changed"
 
 # sdfl (simple (or stupid) dmenu file manager)
 super + r ; f
     sdfl
+
+# show time
+super + r ; t
+    showtime
 
 #
 # bspwm hotkeys

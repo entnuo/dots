@@ -22,11 +22,12 @@ path+=$HOME/.scripts/:$HOME/Documents/android/platform-tools/:$HOME/.cargo/bin/
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export WINEPREFIX="$XDG_DATA_HOME"/wine
+#export GIT_CONFIG_GLOBAL=$HOME/.config/git/config
 
 # Default apps
 export EDITOR='nvim'
 export VISUAL='nvim'
-export TERMINAL='st'
+#export TERMINAL='st'
 export BROWSER='firefox'
 export VIDEO='mpv'
 export IMAGE='nsxiv'
@@ -42,11 +43,12 @@ fi
 
 # nnn fifo and plugins
 export NNN_FIFO=/tmp/nnn.fifo
-export NNN_PLUG='v:preview-tabbed'
-export NNN_TMPFILE='/tmp/.lastd'
+export NNN_COLORS="4137"
+export NNN_BMS="v:$HOME/Videos;d:$HOME/Downloads;D:$HOME/Documents;m:$HOME/Music;p:$HOME/Pictures"
+export NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)$"
 
 # fix some zsh error character not in range
-export LC_ALL=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8
 
-# prevents mpv from freezing my computer (?)
-export MESA_LOADER_DRIVER_OVERRIDE=i965
+# fix nnn order style
+export LC_COLLATE="en_US.UTF-8"

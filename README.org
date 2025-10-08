@@ -1,3 +1,5 @@
+* THIS IS A MESS, A CLEANING IS NEEDED. IF YOU WANT TO USE ANYTHING HERE, CHECK IT FOR YOURSELF
+
 ** dotfiles
 
 In `packages.sh` script there are packages I used in my config and some more. It's encouraged to check it before running it. (it uses pacman, packages' names might be different depending on what distro you're using)
@@ -91,3 +93,8 @@ These are available on my repo ~scripts~.
 | ~Super~ + ~r~ ; ~s~       | List scripts in dmenu from ~$HOME/.scripts~ and execute selected                        |
 | ~Super~ + ~r~ ; ~c~ ; ~b~ | Choose a random wallpaper from ~$HOME/Pictures/wallpapers~ and set as a temp background |
 |---------------------------+-----------------------------------------------------------------------------------------|
+
+
+Notes:
+
+- Copy .fonts/.fonts.dir manually to its location at $HOME

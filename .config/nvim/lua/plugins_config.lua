@@ -1,43 +1,3 @@
--- tokyonight theme
-vim.o.termguicolors = true
-vim.cmd[[colorscheme tokyonight-night
-         syntax on
-         filetype on
-         filetype plugin indent on
-         "set background=dark
-         "let g:limelight_conceal_ctermfg = 240
-         "let g:limelight_conceal_guifg = '#777777'
-         "hi! Normal ctermbg=NONE guibg=NONE 
-         "hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
-]]
-
--- treesitter
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html" },
-  auto_install = true,
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
-}
-
--- barbar
-vim.g.barbar_auto_setup = false -- disable auto-setup
-
-require'barbar'.setup {
-  animation = false,
-  auto_hide = false,
-  tabpages = true,
-  clickable = true,
-
-  icons = {
-    filetype = {
-      custom_colors = true,
-      enabled = false,
-    },
-  },
-}
-
 -- hardline
 require('hardline').setup {
   bufferline = false,  -- disable bufferline
@@ -45,7 +5,7 @@ require('hardline').setup {
     exclude_terminal = false,  -- don't show terminal buffers in bufferline
     show_index = false,        -- show buffer indexes (not the actual buffer numbers) in bufferline
   },
-  theme = 'default',   -- change theme
+  theme = 'catppuccin_minimal',   -- change theme
   sections = {         -- define sections
     {class = 'mode', item = require('hardline.parts.mode').get_item},
     {class = 'high', item = require('hardline.parts.git').get_item, hide = 100},
@@ -99,3 +59,9 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
 end)
 
 require("ibl").setup { indent = { highlight = highlight } }
+
+-- netrw
+-- vim.g.netrw_browser_split = 4
+-- vim.g.netrw_liststyle = 0 
+-- vim.g.netrw_banner = 0
+-- vim.g.netrw_altv = 0 

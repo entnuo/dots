@@ -9,17 +9,21 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 # this makes some programs (mostly the ones which use gtk) load faster
-dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY 
+#dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY 
 
-setxkbmap -layout br -option compose:caps
-xset s 1200 600
-xset dpms 2400 6600 6605
-xset +fp $HOME/.local/share/fonts
-xset fp rehash
-numlockx on
-$HOME/.scripts/mouse-sets
-xrdb .Xresources
-picom --vsync --backend glx -b
+# replace useless fn keys to their respective keys
+xmodmap $HOME/.Xmodmap &
+
+setxkbmap -layout br -option compose:caps &
+xset s 1200 600 &
+xset dpms 2400 6600 6605 &
+xset +fp $HOME/.local/share/fonts &
+xset +fp $HOME/.fonts &
+xset fp rehash &
+numlockx on &
+#$HOME/.scripts/mouse-sets &
+xrdb .Xresources &
+picom -b
 
 #exec bspwm
 

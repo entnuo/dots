@@ -1,52 +1,90 @@
 !General
-URxvt.font: xft:firacode:size=10:minspace=False, xft:DejaVu Sans:pixelsize=10
-URxvt.boldFont: xft:firacode:size=10:minspace=False, xft:DejaVu Sans:pixelsize=10
-URxvt.letterSpace: -1
-URxvt.scrollBar: false
-URxvt.geometry: 83x24
-URxvt.iso14755: false
-URxvt.iso14755_52: true
-urxvt*depth: 32
+!URxvt.font: xft:firacode:size=10:minspace=False, xft:DejaVu Sans:pixelsize=10
+!URxvt.boldFont: xft:firacode:size=10:minspace=False, xft:DejaVu Sans:pixelsize=10
+!URxvt.letterSpace: -1
+!URxvt.scrollBar: false
+!URxvt.geometry: 83x24
+!URxvt.iso14755: false
+!URxvt.iso14755_52: true
+!urxvt*depth: 32
 !URxvt.internalBorder: 0
 
 !Ctrl C & Ctrl V
-URxvt.keysym-Control-C: eval:selection_to_clipboard
-URxvt.keysym.Shift-Control-V: eval:paste_clipboard
-URxvt.keysym.Control-Meta-c: builtin-string
-URxvt.keysym.Control-Meta-v: builtin-string
+!URxvt.keysym-Control-C: eval:selection_to_clipboard
+!URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+!URxvt.keysym.Control-Meta-c: builtin-string
+!URxvt.keysym.Control-Meta-v: builtin-string
 
 !Extensions
-urxvt.perl-ext-common: default,resize-font,matcher
+!urxvt.perl-ext-common: default,resize-font,matcher
 !URxvt.url-launcher: /usr/bin/xdg-open
 !URxvt.matcher.button: 1
-URxvt.colorUL: #4682b4
+!URxvt.colorUL: #4682b4
 
 !Colors (Tokyo Night - except background, foreground, cursor and pointer)
-  *.background:   #191919
-  *.foreground:   #ffffff
-  *.cursorColor:  #c4c4c4
-  *.pointerColor: #c5c5c5
-!black
-   *color0:        #31364e
-   *color8:        #414868
-!red
-   *color1:        #b35567
-   *color9:        #f7768e
-!green
-   *color2:        #58a79a
-   *color10:       #73daca
-!yellow
-   *color3:        #bc9357
-   *color11:       #e0af68
-!blue
-   *color4:        #5976b5
-   *color12:       #7aa2f7
-!magenta
-   *color5:        #8e75bc
-   *color13:       #bb9af7
-!cyan
-   *color6:        #5c98bb
-   *color14:       #7dcfff
-!white
-   *color7:        #a1aace
-   *color15:       #c0caf5
+! *.background:   #191919
+! *.foreground:   #ffffff
+! *.cursorColor:  #c4c4c4
+! *.pointerColor: #c5c5c5
+! !black
+! *color0:        #31364e
+! *color8:        #414868
+! !red
+! *color1:        #b35567
+! *color9:        #f7768e
+! !green
+! *color2:        #58a79a
+! *color10:       #73daca
+! !yellow
+! *color3:        #bc9357
+! *color11:       #e0af68
+! !blue
+! *color4:        #5976b5
+! *color12:       #7aa2f7
+! !magenta
+! *color5:        #8e75bc
+! *color13:       #bb9af7
+! !cyan
+! *color6:        #5c98bb
+! *color14:       #7dcfff
+! !white
+! *color7:        #a1aace
+! *color15:       #c0caf5
+
+
+! special
+*.foreground:   #ffffff
+*.background:   #191919
+*.cursorColor:  #ffffff
+
+! black
+*.color0:       #31364e
+*.color8:       #70718c
+
+! red
+*.color1:       #b35567
+*.color9:       #f37362
+
+! green
+*.color2:       #58a79a
+*.color10:      #75c8be
+
+! yellow
+*.color3:       #bc9357
+*.color11:      #d9b573
+
+! blue
+*.color4:       #5976b5
+*.color12:      #8f9ee1
+
+! magenta
+*.color5:       #8e75bc
+*.color13:      #bf99e2
+
+! cyan
+*.color6:       #5c98bb
+*.color14:      #85bae1
+
+! white
+*.color7:       #a1aace
+*.color15:      #bfc3e8

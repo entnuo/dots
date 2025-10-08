@@ -29,6 +29,7 @@ setopt hist_find_no_dups        #
 setopt hist_save_no_dups        # 
 setopt hist_verify              #
 setopt inc_append_history       # 
+setopt HIST_REDUCE_BLANKS       # remove unnecessary blanks
 
 setopt correct                  # Correct commancds
 export SPROMPT="Correct %R to %r? [Yes, No, Abort, Edit] "
@@ -37,28 +38,6 @@ export SPROMPT="Correct %R to %r? [Yes, No, Abort, Edit] "
 bindkey -v  # vi mode
 bindkey '^[[7~' beginning-of-line # Home in my keyboard
 bindkey '^[[8~' end-of-line       # End " " "
-
-# Cd on quit nnn
-n ()
-{
-    # Block nesting of nnn in subshells
-    if [[ "${NNNLVL:-0}" -ge 1 ]]; then
-        echo "nnn is already running"
-        return
-    fi
-
-    NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-    # export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-
-    # The backslash allows one to alias n to nnn if desired without making an
-    # infinitely recursive alias
-    \nnn -H "$@"
-
-    if [ -f "$NNN_TMPFILE" ]; then
-            . "$NNN_TMPFILE"
-            rm -f "$NNN_TMPFILE" > /dev/null
-    fi
-}
 
 # Alias
 source $HOME/.config/zsh/aliases

@@ -1,8 +1,10 @@
 set selection-clipboard clipboard
-set recolor true
-set page-padding 5
+#set recolor true
+#set page-padding 5
 set statusbar-h-padding 5
 set statusbar-v-padding 5
+
+set guioptions none
 
 set inputbar-bg              "#282828"
 set inputbar-fg              "#fff"

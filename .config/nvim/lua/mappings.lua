@@ -12,29 +12,21 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 map('n', '<C-g>', ':ZenMode<CR>')
-map('n', '<C-l>', ':set foldmethod=indent<CR>',{noremap = true})
-map('n', '<C-k>', ':set foldmethod=syntax<CR>',{noremap = true})
-map('x', 'K', ":move '<-2<CR>gv-gv")
-map('x', 'J', ":move '>+1<CR>gv-gv")
+-- map('n', '<C-l>', ':set foldmethod=indent<CR>',{noremap = true})
+-- map('n', '<C-k>', ':set foldmethod=syntax<CR>',{noremap = true})
+map('x', 'K', ":move '<-2<CR>gv-gv") -- move blocks of text
+map('x', 'J', ":move '>+1<CR>gv-gv") -- move blocks of text
 
--- disable arrow keys (training)
---map('i', '<up>', '<NOP>')
---map('i', '<down>', '<NOP>')
---map('i', '<left>', '<NOP>')
---map('i', '<right>', '<NOP>')
---map('n', '<up>', ':echoerr "use k instead"<CR>')
---map('n', '<down>', ':echoerr "use j instead"<CR>')
---map('n', '<left>', ':echoerr "use h instead"<CR>')
---map('n', '<right>', ':echoerr "use l instead"<CR>')
+-- Better window navigation
+map('n', '<C-h>', '<C-w>h', opts)
+map('n', '<C-j>', '<C-w>j', opts)
+map('n', '<C-k>', '<C-w>k', opts)
+map('n', '<C-l>', '<C-w>l', opts)
 
--- "autopairs"
---map('i', '"', '""<left>')
---map('i', "'", "''<left>")
---map('i', '(', '()<left>')
---map('i', '[', '[]<left>')
---map('i', '{', '{}<left>')
+-- spliting
+map('n', '<Leader>sh', ':split<CR>') -- split horizontally
+map('n', '<Leader>sv', ':vsplit<CR>') -- split vertically
 
--- open terms
-map("n", "<C-S-d>", [[<Cmd>vnew term://zsh <CR>]], opt) -- term over right
-map("n", "<C-b>", [[<Cmd> split term://zsh | resize 10 <CR>]], opt) --  term bottom
-map("n", "<C-t>", [[<Cmd> tabnew | term <CR>]], opt) -- term newtab
+-- qol
+map('n', '<Leader>w', ':w<CR>') -- save
+map('n', '<Leader>x', ':x<CR>') -- save and exit
